@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amr Othman | Elite Backend Architect</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --accent: #d4af37;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+            --grid-color: rgba(255, 255, 255, 0.03);
+            --card-bg: rgba(255, 255, 255, 0.02);
+        }
+
+        body.light-mode {
+            --bg: #f8f9fa;
+            --text-main: #1a1a1a;
+            --text-dim: #4a4a4a;
+            --grid-color: rgba(0, 0, 0, 0.05);
+            --card-bg: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.5s ease;
+            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: clamp(30px, 5vw, 50px) clamp(30px, 5vw, 50px);
+            overflow-x: hidden;
+        }
+
+        /* Responsive Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 5%; /* مساحة أقل للموبايل */
+        }
+
+        @media (min-width: 768px) {
+            .hero { padding: 100px 10%; }
+        }
+
+        .profile-wrap {
+            width: clamp(100px, 20vw, 150px);
+            height: clamp(100px, 20vw, 150px);
+            border: 1px solid var(--accent);
+            padding: 5px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .profile-wrap img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 12vw, 8rem); /* خط مرن يكبر ويصغر مع الشاشة */
+            line-height: 0.9;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* Buttons Responsive */
+        .btn-luxury {
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 12px 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
+            transition: 0.4s;
+            display: inline-block;
+            margin: 5px;
+            text-decoration: none;
+            width: 100%; /* زرار عريض في الموبايل */
+            text-align: center;
+        }
+
+        @media (min-width: 576px) {
+            .btn-luxury { width: auto; padding: 15px 40px; }
+        }
+
+        .btn-luxury:hover { background: var(--accent); color: #000; }
+
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: clamp(20px, 5vw, 35px);
+            transition: 0.5s;
+            height: 100%;
+        }
+
+        #mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--bg);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .stats-img {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%) contrast(120%);
+        }
+
+        footer { padding: 60px 5%; border-top: 1px solid var(--grid-color); }
+        @media (min-width: 768px) { footer { padding: 80px 10%; } }
+
+        .highlight { color: var(--accent); }
+        .text-dim { color: var(--text-dim); font-size: clamp(0.9rem, 2.5vw, 1.1rem); }
+    </style>
+</head>
+<body>
+
+    <button id="mode-toggle">Switch Mode</button>
+
+    <section class="hero">
+        <div class="profile-wrap" data-aos="fade-down">
+            <img src="profile.jpg" alt="Amr Othman">
+        </div>
+        <div style="font-size: 0.7rem; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 10px;" data-aos="fade-right">
+            Architecting the Future — 2026
+        </div>
+        <h1 data-aos="fade-up" data-aos-delay="200">Amr<br>Othman</h1>
+        <p class="text-dim mt-4 mb-4 mb-md-5" style="max-width: 600px; line-height: 1.6;" data-aos="fade-up" data-aos-delay="400">
+            Specialized Backend Engineer crafting robust <span class="highlight">Node.js</span> architectures. Turning complex logic into seamless digital luxury.
+        </p>
+        
+        <div data-aos="fade-up" data-aos-delay="600" class="d-flex flex-column flex-sm-row">
+            <a href="CV.pdf" download class="btn-luxury">Download CV</a>
+            <a href="https://wa.me/201018622861" target="_blank" class="btn-luxury">WhatsApp Me</a>
+        </div>
+    </section>
+
+    <section class="container py-5" id="work">
+        <h2 style="font-family: 'Cormorant Garamond'; font-size: clamp(2.5rem, 8vw, 3.5rem);" class="mb-5" data-aos="fade-right">Selected <span class="highlight">Works</span></h2>
+        <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-up">
+                <div class="glass-card">
+                    <h4 class="mb-3">Saraha Backend API</h4>
+                    <p class="text-dim mb-4">A high-security messaging system using JWT for authentication and MongoDB Atlas for storage.</p>
+                    <a href="https://github.com/0xAmr5" target="_blank" class="highlight text-decoration-none">View Architecture →</a>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card">
+                    <h4 class="mb-3">Scalable Social Core</h4>
+                    <p class="text-dim mb-4">Sophisticated Mongoose modeling featuring real-time feed logic and optimized media handling.</p>
+                    <a href="https://github.com/0xAmr5" target="_blank" class="highlight text-decoration-none">View Architecture →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5 my-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h2 style="font-family: 'Cormorant Garamond'; font-size: clamp(2rem, 6vw, 3rem);" class="mb-4">Backend <span class="highlight">Philosophy</span></h2>
+                <p class="text-dim">I focus on building engines that remain invisible yet invincible, prioritizing performance and security above all.</p>
+            </div>
+            <div class="col-lg-6 text-center" data-aos="zoom-in">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=0xAmr5&layout=compact&theme=vision-glow&hide_border=true" class="stats-img rounded" alt="Tech Stats">
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container" data-aos="fade-up">
+            <h4 style="font-family: 'Cormorant Garamond'; font-size: clamp(1.5rem, 5vw, 2.2rem);" class="mb-4">Ready to elevate your <span class="highlight">Digital Presence</span>?</h4>
+            <div class="d-flex justify-content-center flex-wrap gap-3 mb-5 font-monospace" style="font-size: 0.8rem;">
+                <a href="https://www.linkedin.com/in/0xamrothman5/" target="_blank" class="text-decoration-none highlight">LinkedIn</a>
+                <a href="https://github.com/0xAmr5" target="_blank" class="text-decoration-none highlight">GitHub</a>
+                <a href="mailto:amrothman154@gmail.com" class="text-decoration-none highlight">Email</a>
+            </div>
+            <p class="small text-secondary" style="letter-spacing: 2px; text-transform: uppercase;">
+                &copy; 2026 <strong>Othman Ventures</strong>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: true });
+        const toggleBtn = document.getElementById('mode-toggle');
+        const body = document.body;
+
+        if(localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-mode');
+            toggleBtn.innerText = 'Dark Mode';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            toggleBtn.innerText = isLight ? 'Dark Mode' : 'Light Mode';
+        });
+    </script>
+</body>
+</html>
