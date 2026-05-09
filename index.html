@@ -37,18 +37,25 @@
             overflow-x: hidden;
         }
 
-        /* Mode Toggle */
+        /* Mode Toggle - Modified to be sleeker */
         #mode-toggle {
             position: fixed; top: 20px; right: 20px; z-index: 1000;
             background: var(--bg); border: 1px solid var(--accent);
-            color: var(--accent); padding: 5px 12px; border-radius: 50px;
-            font-size: 0.7rem; text-transform: uppercase; cursor: pointer;
+            color: var(--accent); padding: 8px 16px; border-radius: 50px;
+            font-size: 0.75rem; text-transform: uppercase; cursor: pointer;
+            letter-spacing: 1px; transition: 0.3s;
         }
+        #mode-toggle:hover { background: var(--accent); color: #000; }
 
-        /* Hero */
+        /* Hero - Responsive Fix */
         .hero {
             min-height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; padding: 60px 10%;
+            justify-content: center; padding: 80px 10%;
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 100px 5%; align-items: center; text-align: center; }
+            .btn-luxury { width: 100%; margin: 10px 0 !important; }
         }
 
         .profile-wrap {
@@ -91,26 +98,32 @@
             box-shadow: 0 0 10px var(--accent);
         }
 
+        /* Grid fixes for Mobile */
+        @media (max-width: 991px) {
+            .col-lg-5, .col-lg-7 { width: 100% !important; }
+            .col-lg-5 { margin-bottom: 30px; }
+        }
+
         footer { padding: 60px 10%; border-top: 1px solid var(--grid-color); }
-        .social-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+        .social-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.85rem; margin: 0 10px; }
     </style>
 </head>
 <body>
 
-    <button id="mode-toggle">Switch Mode</button>
+    <button id="mode-toggle">Light Mode</button>
 
     <section class="hero">
-        <div class="profile-wrap">
+        <div class="profile-wrap" data-aos="fade-down">
             <img src="profile.jpg" alt="Amr Othman">
         </div>
-        <div style="font-size: 0.75rem; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 15px;">
+        <div style="font-size: 0.75rem; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 15px;" data-aos="fade-right">
             Othman Ventures — 2026
         </div>
-        <h1>Amr<br>Othman</h1>
-        <p class="text-dim mt-4 mb-5" style="max-width: 550px; font-size: 1.1rem; line-height: 1.6;">
+        <h1 data-aos="fade-up">Amr<br>Othman</h1>
+        <p class="text-dim mt-4 mb-5" style="max-width: 550px; font-size: 1.1rem; line-height: 1.6;" data-aos="fade-up">
             Backend Architect specializing in <span class="highlight">Node.js</span> & <span class="highlight">AWS</span>. Building scalable engines for the modern web.
         </p>
-        <div>
+        <div data-aos="fade-up">
             <a href="CV.pdf" download class="btn-luxury">Download CV</a>
             <a href="https://wa.me/201018622861" target="_blank" class="btn-luxury">WhatsApp Me</a>
         </div>
@@ -118,7 +131,7 @@
 
     <section class="container py-5">
         <h2 style="font-family: 'Cormorant Garamond'; font-size: 3rem;" class="mb-5" data-aos="fade-up">Selected <span class="highlight">Works</span></h2>
-        <div class="row g-4">
+        <div class="row g-4 text-start">
             <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="glass-card h-100">
                     <h4 class="mb-3">Saraha Backend API</h4>
@@ -137,8 +150,8 @@
     </section>
 
     <section class="container py-5 my-5">
-        <div class="row g-4 align-items-stretch">
-            <div class="col-lg-5" data-aos="fade-right" data-aos-offset="200">
+        <div class="row g-4 align-items-stretch text-start">
+            <div class="col-lg-5" data-aos="fade-right">
                 <h2 style="font-family: 'Cormorant Garamond'; font-size: 2.8rem;" class="mb-4 text-uppercase">Technical <span class="highlight">Arsenal</span></h2>
                 <div class="glass-card mb-3 p-3 border-start border-warning border-3" style="background: rgba(255,255,255,0.01);">
                     <h6 class="highlight mb-1" style="font-size: 0.85rem;">Core Systems</h6>
@@ -149,7 +162,7 @@
                     <p class="small text-secondary mb-0">AWS (EC2/S3), Git/GitHub & CI/CD Workflows.</p>
                 </div>
             </div>
-            <div class="col-lg-7" data-aos="fade-left" data-aos-offset="200">
+            <div class="col-lg-7" data-aos="fade-left">
                 <div class="glass-card h-100">
                     <h5 class="mb-4 highlight" style="font-family: 'Cormorant Garamond'; letter-spacing: 2px;">Proficiency Levels</h5>
                     
@@ -174,9 +187,9 @@
         </div>
     </section>
 
-    <footer class="text-center" data-aos="zoom-in" data-aos-offset="100">
+    <footer class="text-center" data-aos="zoom-in">
         <h4 style="font-family: 'Cormorant Garamond'; font-size: 2rem;" class="mb-4">Let's build something <span class="highlight">Invincible</span>.</h4>
-        <div class="d-flex justify-content-center gap-4 mb-5">
+        <div class="d-flex justify-content-center flex-wrap gap-2 mb-5">
             <a href="https://www.linkedin.com/in/0xamrothman5/" target="_blank" class="social-link">LINKEDIN</a>
             <a href="https://github.com/0xAmr5" target="_blank" class="social-link">GITHUB</a>
             <a href="mailto:amrothman154@gmail.com" class="social-link">EMAIL</a>
@@ -186,27 +199,33 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // AOS Configuration - تظبيط إعدادات الحركة لتكون ناعمة وبطيئة
         AOS.init({
-            duration: 1200, // مدة الحركة (ميلي ثانية) - جعلناها بطيئة للفخامة
-            once: false,    // هل تحدث الحركة مرة واحدة فقط؟ (اجعلها false لتعمل كلما نزلت وطلعت)
-            mirror: false,  // هل تحدث الحركة عند الصعود للأعلى أيضاً؟ (اجعلها false عشان ما تضايقش المستخدم)
-            offset: 150,    // متى تبدأ الحركة (بكسل من أسفل الشاشة)
-            easing: 'ease-out-cubic' // نوع الحركة (ناعمة في النهاية)
+            duration: 1200,
+            once: false,
+            offset: 100,
+            easing: 'ease-out-cubic'
         });
 
-        // Dark Mode Logic
         const toggleBtn = document.getElementById('mode-toggle');
+        
+        // Function to update button text
+        function updateBtnText() {
+            const isLight = document.body.classList.contains('light-mode');
+            toggleBtn.innerText = isLight ? 'Dark Mode' : 'Light Mode';
+        }
+
         toggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
             const isLight = document.body.classList.contains('light-mode');
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
-            toggleBtn.innerText = isLight ? 'Dark Mode' : 'Light Mode';
+            updateBtnText();
         });
+
+        // Initialize theme and button
         if(localStorage.getItem('theme') === 'light') {
             document.body.classList.add('light-mode');
-            toggleBtn.innerText = 'Dark Mode';
         }
+        updateBtnText();
     </script>
 </body>
 </html>
