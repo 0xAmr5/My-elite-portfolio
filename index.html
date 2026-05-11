@@ -3,229 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amr Othman | Elite Backend Architect</title>
+    <title>Amr Othman | Backend Architect Portfolio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         :root {
-            --bg: #0a0a0a;
-            --accent: #d4af37; /* Gold */
-            --text-main: #ffffff;
-            --text-dim: #a0a0a0;
-            --grid-color: rgba(255, 255, 255, 0.03);
-            --card-bg: rgba(255, 255, 255, 0.02);
+            --bg: #050811;
+            --card-bg: #0f172a;
+            --accent: #a855f7;
+            --accent-2: #ec4899;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --grid-color: rgba(168, 85, 247, 0.05);
         }
 
         body.light-mode {
-            --bg: #f8f9fa;
-            --text-main: #1a1a1a;
-            --text-dim: #4a4a4a;
-            --grid-color: rgba(0, 0, 0, 0.05);
+            --bg: #f8fafc;
             --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-dim: #475569;
+            --grid-color: rgba(0, 0, 0, 0.05);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            transition: all 0.5s ease;
-            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 40px 40px;
+            transition: 0.5s ease;
+            background-image: radial-gradient(var(--grid-color) 1.5px, transparent 1px);
+            background-size: 35px 35px;
             overflow-x: hidden;
         }
 
-        /* Mode Toggle - Modified to be sleeker */
         #mode-toggle {
             position: fixed; top: 20px; right: 20px; z-index: 1000;
-            background: var(--bg); border: 1px solid var(--accent);
-            color: var(--accent); padding: 8px 16px; border-radius: 50px;
-            font-size: 0.75rem; text-transform: uppercase; cursor: pointer;
-            letter-spacing: 1px; transition: 0.3s;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--accent);
+            color: var(--text-main); padding: 10px; border-radius: 12px; cursor: pointer;
+            backdrop-filter: blur(10px);
         }
-        #mode-toggle:hover { background: var(--accent); color: #000; }
 
-        /* Hero - Responsive Fix */
+        .container { padding: 80px 10%; width: 100%; }
+        .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 40px; }
+        .section-title span { color: var(--accent); }
+
         .hero {
             min-height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; padding: 80px 10%;
+            justify-content: center; align-items: center; text-align: center; padding: 100px 20px;
         }
+        .profile-box {
+            width: 140px; height: 140px; position: relative; margin-bottom: 30px;
+        }
+        .profile-box img {
+            width: 100%; height: 100%; border-radius: 20px; object-fit: cover;
+            border: 2px solid var(--accent); padding: 4px;
+        }
+
+        h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        h1 span { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Stats Bar with Counter Styles */
+        .stats-bar {
+            display: flex; gap: 40px; margin-bottom: 50px; background: rgba(168, 85, 247, 0.05);
+            padding: 25px 50px; border-radius: 25px; border: 1px solid rgba(168, 85, 247, 0.1);
+        }
+        .stat-item h4 { font-size: 2rem; font-weight: 800; color: var(--accent); min-width: 80px; }
+        .stat-item p { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; font-weight: 600; }
+
+        .btn-container { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; padding: 16px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .btn-secondary { border: 2px solid var(--accent); color: var(--text-main); padding: 16px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; }
+
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .glass-card {
+            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
+            padding: 40px; border-radius: 25px; transition: 0.3s;
+        }
+        .glass-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1); }
+
+        .tag { background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.2); color: var(--accent); padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-right: 8px; }
+
+        .timeline { border-left: 2px solid var(--accent); padding-left: 25px; }
+        .timeline-item { margin-bottom: 40px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -32px; top: 5px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
 
         @media (max-width: 768px) {
-            .hero { padding: 100px 5%; align-items: center; text-align: center; }
-            .btn-luxury { width: 100%; margin: 10px 0 !important; }
+            .container { padding: 60px 5%; }
+            .stats-bar { flex-direction: column; gap: 30px; padding: 30px; }
+            .stat-item h4 { font-size: 2.5rem; }
+            .btn-primary, .btn-secondary { width: 100%; text-align: center; }
         }
 
-        .profile-wrap {
-            width: 130px; height: 130px; border: 1px solid var(--accent);
-            padding: 5px; border-radius: 50%; margin-bottom: 25px;
-        }
-        .profile-wrap img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
-
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3rem, 10vw, 7rem); line-height: 0.9;
-            font-weight: 700; margin: 0;
-        }
-
-        .btn-luxury {
-            border: 1px solid var(--accent); color: var(--accent);
-            padding: 12px 35px; text-transform: uppercase; letter-spacing: 2px;
-            font-size: 0.8rem; transition: 0.4s; display: inline-block;
-            margin: 10px 5px; text-decoration: none; text-align: center;
-        }
-        .btn-luxury:hover { background: var(--accent); color: #000; }
-
-        /* Unified Card Style */
-        .glass-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 30px; transition: 0.5s;
-        }
-        .glass-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-
-        .highlight { color: var(--accent); }
-        .text-dim { color: var(--text-dim); }
-
-        /* Custom Progress Bars */
-        .progress { height: 2px; background: rgba(255,255,255,0.05); overflow: visible; }
-        .progress-bar { background: var(--accent); position: relative; }
-        .progress-bar::after {
-            content: ''; position: absolute; right: 0; top: -4px;
-            width: 10px; height: 10px; background: var(--accent); border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent);
-        }
-
-        /* Grid fixes for Mobile */
-        @media (max-width: 991px) {
-            .col-lg-5, .col-lg-7 { width: 100% !important; }
-            .col-lg-5 { margin-bottom: 30px; }
-        }
-
-        footer { padding: 60px 10%; border-top: 1px solid var(--grid-color); }
-        .social-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.85rem; margin: 0 10px; }
+        footer { padding: 80px 10%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
 
-    <button id="mode-toggle">Light Mode</button>
+    <button id="mode-toggle">☀️</button>
 
     <section class="hero">
-        <div class="profile-wrap" data-aos="fade-down">
+        <div class="profile-box" data-aos="zoom-in">
             <img src="profile.jpg" alt="Amr Othman">
         </div>
-        <div style="font-size: 0.75rem; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 15px;" data-aos="fade-right">
-            Othman Ventures — 2026
-        </div>
-        <h1 data-aos="fade-up">Amr<br>Othman</h1>
-        <p class="text-dim mt-4 mb-5" style="max-width: 550px; font-size: 1.1rem; line-height: 1.6;" data-aos="fade-up">
-            Backend Architect specializing in <span class="highlight">Node.js</span> & <span class="highlight">AWS</span>. Building scalable engines for the modern web.
+        <div class="tag" style="margin-bottom: 25px;">● Backend Architect & System Designer</div>
+        <h1 data-aos="fade-up">Building <span>Robust Engines</span> <br>for Scalable Apps</h1>
+        <p data-aos="fade-up" data-aos-delay="100">
+            I am <b>Amr Othman</b>. specialized in architecting resilient backend ecosystems. From high-concurrency APIs to secure database structures, I ensure your engine never misses a beat.
         </p>
-        <div data-aos="fade-up">
-            <a href="CV.pdf" download class="btn-luxury">Download CV</a>
-            <a href="https://wa.me/201018622861" target="_blank" class="btn-luxury">WhatsApp Me</a>
+        
+        <div class="stats-bar" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-item">
+                <h4 class="counter" data-target="20">0</h4>
+                <p>Systems Built</p>
+            </div>
+            <div class="stat-item">
+                <h4 class="counter" data-target="100">0</h4>
+                <p>Uptime %</p>
+            </div>
+            <div class="stat-item">
+                <h4 class="counter" data-target="350">0</h4>
+                <p>GitHub Commits</p>
+            </div>
+        </div>
+
+        <div class="btn-container" data-aos="fade-up" data-aos-delay="300">
+            <a href="https://wa.me/201018622861" class="btn-primary">Start a Project ↗</a>
+            <a href="CV.pdf" download class="btn-secondary">Download CV</a>
         </div>
     </section>
 
-    <section class="container py-5">
-        <h2 style="font-family: 'Cormorant Garamond'; font-size: 3rem;" class="mb-5" data-aos="fade-up">Selected <span class="highlight">Works</span></h2>
-        <div class="row g-4 text-start">
-            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="glass-card h-100">
-                    <h4 class="mb-3">Saraha Backend API</h4>
-                    <p class="text-dim small mb-4">A high-security messaging system featuring JWT authentication and MongoDB Atlas integration.</p>
-                    <a href="https://github.com/0xAmr5" target="_blank" class="social-link">Architecture Details →</a>
-                </div>
+    <section class="container">
+        <h2 class="section-title">The <span>Professional Journey</span></h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-left">
+                <h6 style="color: var(--accent); font-weight: 700; margin-bottom: 10px;">2024 - PRESENT</h6>
+                <h4 style="margin-bottom: 10px;">B.Sc. Software Engineering | AOU</h4>
+                <p style="color: var(--text-dim); line-height: 1.6;">Studying at Arab Open University, specializing in Computer Science foundations, Advanced Databases, and Enterprise Architecture.</p>
             </div>
-            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="glass-card h-100">
-                    <h4 class="mb-3">Scalable Social Core</h4>
-                    <p class="text-dim small mb-4">Sophisticated database modeling with real-time logic and cloud-based media management.</p>
-                    <a href="https://github.com/0xAmr5" target="_blank" class="social-link">Architecture Details →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container py-5 my-5">
-        <div class="row g-4 align-items-stretch text-start">
-            <div class="col-lg-5" data-aos="fade-right">
-                <h2 style="font-family: 'Cormorant Garamond'; font-size: 2.8rem;" class="mb-4 text-uppercase">Technical <span class="highlight">Arsenal</span></h2>
-                <div class="glass-card mb-3 p-3 border-start border-warning border-3" style="background: rgba(255,255,255,0.01);">
-                    <h6 class="highlight mb-1" style="font-size: 0.85rem;">Core Systems</h6>
-                    <p class="small text-secondary mb-0">Path, File System, Streams & HTTP Protocols.</p>
-                </div>
-                <div class="glass-card p-3 border-start border-warning border-3" style="background: rgba(255,255,255,0.01);">
-                    <h6 class="highlight mb-1" style="font-size: 0.85rem;">Infrastructure</h6>
-                    <p class="small text-secondary mb-0">AWS (EC2/S3), Git/GitHub & CI/CD Workflows.</p>
-                </div>
-            </div>
-            <div class="col-lg-7" data-aos="fade-left">
-                <div class="glass-card h-100">
-                    <h5 class="mb-4 highlight" style="font-family: 'Cormorant Garamond'; letter-spacing: 2px;">Proficiency Levels</h5>
-                    
-                    <div class="mb-4">
-                        <div class="d-flex justify-content-between mb-1 small fw-bold"><span>Node.js, Express & TypeScript</span><span>92%</span></div>
-                        <div class="progress"><div class="progress-bar" style="width: 92%;"></div></div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="d-flex justify-content-between mb-1 small fw-bold"><span>Database (MongoDB & SQL)</span><span>88%</span></div>
-                        <div class="progress"><div class="progress-bar" style="width: 88%;"></div></div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="d-flex justify-content-between mb-1 small fw-bold"><span>Java & OOP Principles</span><span>85%</span></div>
-                        <div class="progress"><div class="progress-bar" style="width: 85%;"></div></div>
-                    </div>
-                    <div>
-                        <div class="d-flex justify-content-between mb-1 small fw-bold"><span>Python Scripting</span><span>75%</span></div>
-                        <div class="progress"><div class="progress-bar" style="width: 75%;"></div></div>
-                    </div>
-                </div>
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                <h6 style="color: var(--accent); font-weight: 700; margin-bottom: 10px;">CERTIFICATION</h6>
+                <h4 style="margin-bottom: 10px;">Backend Diploma | Route Academy</h4>
+                <p style="color: var(--text-dim); line-height: 1.6;">Completed an intensive professional track on Node.js, Express, MongoDB, and AWS cloud infrastructures with hands-on enterprise projects.</p>
             </div>
         </div>
     </section>
 
-    <footer class="text-center" data-aos="zoom-in">
-        <h4 style="font-family: 'Cormorant Garamond'; font-size: 2rem;" class="mb-4">Let's build something <span class="highlight">Invincible</span>.</h4>
-        <div class="d-flex justify-content-center flex-wrap gap-2 mb-5">
-            <a href="https://www.linkedin.com/in/0xamrothman5/" target="_blank" class="social-link">LINKEDIN</a>
-            <a href="https://github.com/0xAmr5" target="_blank" class="social-link">GITHUB</a>
-            <a href="mailto:amrothman154@gmail.com" class="social-link">EMAIL</a>
+    <section class="container">
+        <h2 class="section-title">Selected <span>Works</span></h2>
+        <div class="grid-cards">
+            <div class="glass-card" data-aos="fade-up">
+                <span class="tag" style="margin-bottom: 20px;">System Architecture</span>
+                <h4>Saraha Backend Logic</h4>
+                <p style="color: var(--text-dim); margin-top: 15px; margin-bottom: 25px; line-height: 1.6;">
+                    Architected a secure messaging engine featuring JWT auth, real-time message routing, and distributed MongoDB storage.
+                </p>
+                <div style="margin-bottom: 25px;">
+                    <span class="tag">Node.js</span><span class="tag">JWT</span><span class="tag">MongoDB</span>
+                </div>
+                <a href="https://github.com/0xAmr5" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 800;">View Repository →</a>
+            </div>
+            <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                <span class="tag" style="margin-bottom: 20px;">Infrastructure</span>
+                <h4>E-Commerce API Engine</h4>
+                <p style="color: var(--text-dim); margin-top: 15px; margin-bottom: 25px; line-height: 1.6;">
+                    Built a scalable marketplace backend with complex inventory management, relational data handling, and checkout flows.
+                </p>
+                <div style="margin-bottom: 25px;">
+                    <span class="tag">TypeScript</span><span class="tag">Express</span><span class="tag">SQL</span>
+                </div>
+                <a href="https://github.com/0xAmr5" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 800;">View Repository →</a>
+            </div>
         </div>
-        <p class="small text-secondary" style="letter-spacing: 3px;">&copy; 2026 OTHMAN VENTURES</p>
+    </section>
+
+    <footer>
+        <h2 class="section-title" data-aos="fade-up">Ready to build something <br><span>Invincible?</span></h2>
+        <p style="color: var(--text-dim); margin-bottom: 40px;">I'm currently available for professional collaborations and elite backend roles.</p>
+        <div style="margin-bottom: 40px;">
+            <a href="https://github.com/0xAmr5" target="_blank" style="color: var(--text-main); font-size: 1.8rem; margin: 0 20px; transition: 0.3s;"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/0xamrothman5/" target="_blank" style="color: var(--text-main); font-size: 1.8rem; margin: 0 20px; transition: 0.3s;"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:amrothman154@gmail.com" style="color: var(--text-main); font-size: 1.8rem; margin: 0 20px; transition: 0.3s;"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--text-dim); letter-spacing: 3px;">&copy; 2026 <b>OTHMAN VENTURES</b> | ARCHITECTING THE FUTURE</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1200,
-            once: false,
-            offset: 100,
-            easing: 'ease-out-cubic'
-        });
+        AOS.init({ duration: 1000, once: true, offset: 50 });
+
+        // COUNTER LOGIC
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target + (target === 100 ? '%' : '+');
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Trigger counters on scroll
+        let started = false;
+        window.onscroll = () => {
+            if (window.scrollY >= 400 && !started) {
+                startCounters();
+                started = true;
+            }
+        };
 
         const toggleBtn = document.getElementById('mode-toggle');
-        
-        // Function to update button text
-        function updateBtnText() {
-            const isLight = document.body.classList.contains('light-mode');
-            toggleBtn.innerText = isLight ? 'Dark Mode' : 'Light Mode';
-        }
-
         toggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
             const isLight = document.body.classList.contains('light-mode');
+            toggleBtn.innerText = isLight ? '🌙' : '☀️';
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
-            updateBtnText();
         });
-
-        // Initialize theme and button
-        if(localStorage.getItem('theme') === 'light') {
-            document.body.classList.add('light-mode');
-        }
-        updateBtnText();
+        if(localStorage.getItem('theme') === 'light') { document.body.classList.add('light-mode'); toggleBtn.innerText = '🌙'; }
     </script>
 </body>
 </html>
