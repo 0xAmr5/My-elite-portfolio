@@ -2,238 +2,139 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amr Othman | Backend Architect Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Amr Othman | Backend Architect Elite</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <style>
-        :root {
-            --bg: #050811;
-            --card-bg: #0f172a;
-            --accent: #a855f7;
-            --accent-2: #ec4899;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-            --grid-color: rgba(168, 85, 247, 0.05);
-        }
-
-        body.light-mode {
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --text-dim: #475569;
-            --grid-color: rgba(0, 0, 0, 0.05);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            transition: 0.5s ease;
-            background-image: radial-gradient(var(--grid-color) 1.5px, transparent 1px);
-            background-size: 35px 35px;
-            overflow-x: hidden;
-        }
-
-        #mode-toggle {
-            position: fixed; top: 20px; right: 20px; z-index: 1000;
-            background: rgba(255,255,255,0.05); border: 1px solid var(--accent);
-            color: var(--text-main); padding: 10px; border-radius: 12px; cursor: pointer;
-            backdrop-filter: blur(10px);
-        }
-
-        .container { padding: 80px 10%; width: 100%; }
-        .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 40px; }
-        .section-title span { color: var(--accent); }
-
-        .hero {
-            min-height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center; padding: 100px 20px;
-        }
-        .profile-box {
-            width: 140px; height: 140px; position: relative; margin-bottom: 30px;
-        }
-        .profile-box img {
-            width: 100%; height: 100%; border-radius: 20px; object-fit: cover;
-            border: 2px solid var(--accent); padding: 4px;
-        }
-
-        h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
-        h1 span { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-        /* Stats Bar with Counter Styles */
-        .stats-bar {
-            display: flex; gap: 40px; margin-bottom: 50px; background: rgba(168, 85, 247, 0.05);
-            padding: 25px 50px; border-radius: 25px; border: 1px solid rgba(168, 85, 247, 0.1);
-        }
-        .stat-item h4 { font-size: 2rem; font-weight: 800; color: var(--accent); min-width: 80px; }
-        .stat-item p { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; font-weight: 600; }
-
-        .btn-container { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-        .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; padding: 16px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; transition: 0.3s; }
-        .btn-secondary { border: 2px solid var(--accent); color: var(--text-main); padding: 16px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; }
-
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .glass-card {
-            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
-            padding: 40px; border-radius: 25px; transition: 0.3s;
-        }
-        .glass-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1); }
-
-        .tag { background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.2); color: var(--accent); padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-right: 8px; }
-
-        .timeline { border-left: 2px solid var(--accent); padding-left: 25px; }
-        .timeline-item { margin-bottom: 40px; position: relative; }
-        .timeline-item::before { content: ''; position: absolute; left: -32px; top: 5px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
-
-        @media (max-width: 768px) {
-            .container { padding: 60px 5%; }
-            .stats-bar { flex-direction: column; gap: 30px; padding: 30px; }
-            .stat-item h4 { font-size: 2.5rem; }
-            .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-        }
-
-        footer { padding: 80px 10%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <button id="mode-toggle">☀️</button>
+    <div id="progress-bar"></div>
+    <div class="mouse-glow" id="mouse-glow"></div>
 
-    <section class="hero">
-        <div class="profile-box" data-aos="zoom-in">
-            <img src="profile.jpg" alt="Amr Othman">
-        </div>
-        <div class="tag" style="margin-bottom: 25px;">● Backend Architect & System Designer</div>
-        <h1 data-aos="fade-up">Building <span>Robust Engines</span> <br>for Scalable Apps</h1>
-        <p data-aos="fade-up" data-aos-delay="100">
-            I am <b>Amr Othman</b>. specialized in architecting resilient backend ecosystems. From high-concurrency APIs to secure database structures, I ensure your engine never misses a beat.
-        </p>
-        
-        <div class="stats-bar" data-aos="fade-up" data-aos-delay="200">
-            <div class="stat-item">
-                <h4 class="counter" data-target="20">0</h4>
-                <p>Systems Built</p>
-            </div>
-            <div class="stat-item">
-                <h4 class="counter" data-target="100">0</h4>
-                <p>Uptime %</p>
-            </div>
-            <div class="stat-item">
-                <h4 class="counter" data-target="350">0</h4>
-                <p>GitHub Commits</p>
+    <header>
+        <div class="nav-content">
+            <a href="#" class="logo">AMR<span>OTHMAN</span></a>
+            <nav>
+                <a href="#languages">Stack</a>
+                <a href="#freelance">Enterprise</a>
+                <a href="#projects">Labs</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="tel:01018622861" class="nav-call"><i class="fa-solid fa-phone"></i></a>
             </div>
         </div>
+    </header>
 
-        <div class="btn-container" data-aos="fade-up" data-aos-delay="300">
-            <a href="https://wa.me/201018622861" class="btn-primary">Start a Project ↗</a>
-            <a href="CV.pdf" download class="btn-secondary">Download CV</a>
-        </div>
-    </section>
-
-    <section class="container">
-        <h2 class="section-title">The <span>Professional Journey</span></h2>
-        <div class="timeline">
-            <div class="timeline-item" data-aos="fade-left">
-                <h6 style="color: var(--accent); font-weight: 700; margin-bottom: 10px;">2024 - PRESENT</h6>
-                <h4 style="margin-bottom: 10px;">B.Sc. Software Engineering | AOU</h4>
-                <p style="color: var(--text-dim); line-height: 1.6;">Studying at Arab Open University, specializing in Computer Science foundations, Advanced Databases, and Enterprise Architecture.</p>
-            </div>
-            <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
-                <h6 style="color: var(--accent); font-weight: 700; margin-bottom: 10px;">CERTIFICATION</h6>
-                <h4 style="margin-bottom: 10px;">Backend Diploma | Route Academy</h4>
-                <p style="color: var(--text-dim); line-height: 1.6;">Completed an intensive professional track on Node.js, Express, MongoDB, and AWS cloud infrastructures with hands-on enterprise projects.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="container">
-        <h2 class="section-title">Selected <span>Works</span></h2>
-        <div class="grid-cards">
-            <div class="glass-card" data-aos="fade-up">
-                <span class="tag" style="margin-bottom: 20px;">System Architecture</span>
-                <h4>Saraha Backend Logic</h4>
-                <p style="color: var(--text-dim); margin-top: 15px; margin-bottom: 25px; line-height: 1.6;">
-                    Architected a secure messaging engine featuring JWT auth, real-time message routing, and distributed MongoDB storage.
-                </p>
-                <div style="margin-bottom: 25px;">
-                    <span class="tag">Node.js</span><span class="tag">JWT</span><span class="tag">MongoDB</span>
+    <main>
+        <section class="hero container" id="home">
+            <div class="profile-outer" data-aos="zoom-in">
+                <div class="profile-ring">
+                    <div class="profile-box">
+                        <img src="profile.jpg" alt="Amr Othman">
+                    </div>
                 </div>
-                <a href="https://github.com/0xAmr5" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 800;">View Repository →</a>
+                <div class="online-status"></div>
             </div>
-            <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
-                <span class="tag" style="margin-bottom: 20px;">Infrastructure</span>
-                <h4>E-Commerce API Engine</h4>
-                <p style="color: var(--text-dim); margin-top: 15px; margin-bottom: 25px; line-height: 1.6;">
-                    Built a scalable marketplace backend with complex inventory management, relational data handling, and checkout flows.
+            
+            <div class="hero-info">
+                <div class="luxury-badge" data-aos="fade-down">Available for High-End Engineering</div>
+                <h1 data-aos="fade-up" data-aos-delay="200">Architecting <span>Digital</span> <br>Masterpieces.</h1>
+                <p class="hero-sub" data-aos="fade-up" data-aos-delay="400">
+                    Senior-level Backend Architect. I design robust, high-availability engines that transform complex business logic into scalable reality.
                 </p>
-                <div style="margin-bottom: 25px;">
-                    <span class="tag">TypeScript</span><span class="tag">Express</span><span class="tag">SQL</span>
+                <div class="hero-btns" data-aos="fade-up" data-aos-delay="600">
+                    <a href="https://wa.me/201009694831" class="btn-gold">WhatsApp Me</a>
+                    <a href="CV.pdf" target="_blank" class="btn-outline-gold">View Portfolio PDF</a>
                 </div>
-                <a href="https://github.com/0xAmr5" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 800;">View Repository →</a>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="container" id="languages">
+            <h2 class="label-gold" data-aos="fade-right">01 // THE ARSENAL</h2>
+            <div class="lang-grid">
+                <div class="lang-card" data-aos="zoom-in"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+                <div class="lang-card" data-aos="zoom-in" data-aos-delay="50"><i class="fa-solid fa-code"></i><span>TypeScript</span></div>
+                <div class="lang-card" data-aos="zoom-in" data-aos-delay="100"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                <div class="lang-card" data-aos="zoom-in" data-aos-delay="150"><i class="fa-brands fa-java"></i><span>Java</span></div>
+                <div class="lang-card" data-aos="zoom-in" data-aos-delay="200"><i class="fa-solid fa-hashtag"></i><span>C#</span></div>
+                <div class="lang-card" data-aos="zoom-in" data-aos-delay="250"><i class="fa-brands fa-html5"></i><span>HTML5</span></div>
+                <div class="lang-card" data-aos="zoom-in" data-aos-delay="300"><i class="fa-brands fa-css3-alt"></i><span>CSS3</span></div>
+            </div>
+        </section>
+
+        <section class="container" id="freelance">
+            <h2 class="label-gold" data-aos="fade-right">02 // ENTERPRISE SOLUTIONS (FREELANCE)</h2>
+            <div class="project-grid">
+                <div class="glass-card" data-aos="fade-up">
+                    <div class="card-head"><h4>Law Office CRM</h4><span class="status">Live</span></div>
+                    <p>Complete management system for case tracking and secure legal archiving.</p>
+                    <div class="tags"><span>Node.js</span><span>Express</span><span>AWS S3</span></div>
+                </div>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card-head"><h4>E-Commerce Scalable Engine</h4><span class="status">Enterprise</span></div>
+                    <p>Multi-vendor backend with optimized payment flows and inventory sync.</p>
+                    <div class="tags"><span>Microservices</span><span>SQL</span><span>Redis</span></div>
+                </div>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-head"><h4>Logistics Real-Time Tracker</h4><span class="status">SaaS</span></div>
+                    <p>Fleet management API with live Socket.io tracking and route optimization.</p>
+                    <div class="tags"><span>Socket.io</span><span>Typescript</span><span>Google Maps API</span></div>
+                </div>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="card-head"><h4>Ed-Tech LMS API</h4><span class="status">Live</span></div>
+                    <p>Learning management system supporting course streaming and secure file delivery.</p>
+                    <div class="tags"><span>Node.js</span><span>Mongoose</span><span>CDN</span></div>
+                </div>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-head"><h4>Health-Tech Patient Portal</h4><span class="status">Private</span></div>
+                    <p>Secure patient records management with encrypted data access layers.</p>
+                    <div class="tags"><span>Security</span><span>Encryption</span><span>MongoDB</span></div>
+                </div>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="card-head"><h4>Professional Legal Branding</h4><span class="status">Completed</span></div>
+                    <p>Digital infrastructure for Mohamed Saeed's law practice and case routing.</p>
+                    <div class="tags"><span>Portfolio</span><span>UX Logic</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" id="projects">
+            <h2 class="label-gold" data-aos="fade-right">03 // LABS & OPEN SOURCE (GITHUB)</h2>
+            <div class="project-grid">
+                <div class="glass-card" data-aos="fade-up">
+                    <div class="card-head"><h4>Social Media Core</h4><a href="https://github.com/0xAmr5" target="_blank"><i class="fa-brands fa-github"></i></a></div>
+                    <p>Backend for social apps including relationships, feed logic, and real-time alerts.</p>
+                    <div class="tags"><span>Redis</span><span>Socket.io</span></div>
+                </div>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-head"><h4>Saraha Encryption API</h4><a href="https://github.com/0xAmr5" target="_blank"><i class="fa-brands fa-github"></i></a></div>
+                    <p>Advanced encrypted messaging system using Node.js and JWT security.</p>
+                    <div class="tags"><span>Security</span><span>Node.js</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <h2 class="section-title" data-aos="fade-up">Ready to build something <br><span>Invincible?</span></h2>
-        <p style="color: var(--text-dim); margin-bottom: 40px;">I'm currently available for professional collaborations and elite backend roles.</p>
-        <div style="margin-bottom: 40px;">
-            <a href="https://github.com/0xAmr5" target="_blank" style="color: var(--text-main); font-size: 1.8rem; margin: 0 20px; transition: 0.3s;"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/0xamrothman5/" target="_blank" style="color: var(--text-main); font-size: 1.8rem; margin: 0 20px; transition: 0.3s;"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="mailto:amrothman154@gmail.com" style="color: var(--text-main); font-size: 1.8rem; margin: 0 20px; transition: 0.3s;"><i class="fa-solid fa-envelope"></i></a>
+        <div class="footer-content">
+            <h2 data-aos="fade-up">Let's build something <span>Invincible.</span></h2>
+            <div class="social-bar">
+                <a href="https://github.com/0xAmr5" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/0xamrothman5/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/share/18iHgn7BQV/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://wa.me/201009694831" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <p class="mail-footer">amrothman154@gmail.com | 01018622861</p>
+            <p class="copyright">© 2026 OTHMAN VENTURES | THE GOLD STANDARD</p>
         </div>
-        <p style="font-size: 0.75rem; color: var(--text-dim); letter-spacing: 3px;">&copy; 2026 <b>OTHMAN VENTURES</b> | ARCHITECTING THE FUTURE</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true, offset: 50 });
-
-        // COUNTER LOGIC
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200;
-
-        const startCounters = () => {
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
-                    const inc = target / speed;
-
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 1);
-                    } else {
-                        counter.innerText = target + (target === 100 ? '%' : '+');
-                    }
-                };
-                updateCount();
-            });
-        };
-
-        // Trigger counters on scroll
-        let started = false;
-        window.onscroll = () => {
-            if (window.scrollY >= 400 && !started) {
-                startCounters();
-                started = true;
-            }
-        };
-
-        const toggleBtn = document.getElementById('mode-toggle');
-        toggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            const isLight = document.body.classList.contains('light-mode');
-            toggleBtn.innerText = isLight ? '🌙' : '☀️';
-            localStorage.setItem('theme', isLight ? 'light' : 'dark');
-        });
-        if(localStorage.getItem('theme') === 'light') { document.body.classList.add('light-mode'); toggleBtn.innerText = '🌙'; }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
